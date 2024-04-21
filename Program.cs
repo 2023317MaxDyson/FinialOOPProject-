@@ -1,4 +1,9 @@
-﻿
+
+
+//  Team Member: Max Dyson 
+
+
+
 class HowToPlayConnect4
 {
     public HowToPlayConnect4 ( ) {
@@ -10,37 +15,55 @@ class HowToPlayConnect4
 }
 
 
-class GameController
+class Gamecontroller  {
+
+
+
+
+}
+
+
+ class Model
 {
 
 
 }
+ 
+
+abstract class Player { 
 
 
- class GameModel
+
+
+
+}
+
+// 1 or 2 players 
+class Players : Player {
+
+
+
+}
+
+
+// Computer Player 
+
+/*
+class ComputerPlayer : Player
 {
 
-
 }
 
+*/
 
-class Players { 
+class Interaction  { 
 
-
-}
-
-class Player1 : Players
-{
 
 
 
 }
 
 
-class Player2 : Players
-{
-
-}
 
 
 
@@ -52,10 +75,37 @@ namespace OOPProjectMaxDyson
         static void Main(string[] args)
         {
          
-            Console.WriteLine(" Connect 4 ");
+            Console.WriteLine(" Welcome to the Connect 4 Game: ");
+            Console.WriteLine("\n Type 1 to look at how to play connect 4\n Type 2 to look start the game");
+    
 
-     
-          
+          var input = Console.ReadLine();
+
+
+            do
+            {
+                if (input == "1")
+                {
+                    Console.WriteLine("Under development right now.");
+
+                }
+                
+                else if (input == "2")
+                {
+                    Console.WriteLine("\"Under development right now.");
+
+                }
+              
+               
+
+
+
+            } while (input == null);
+
+  
+           
+    
+
 
         }
     }
