@@ -1,4 +1,6 @@
 
+// Team Name: The C# Coder 
+
 
 //  Team Member: Max Dyson
 
@@ -13,58 +15,106 @@ namespace OOPProjectMaxDyson
     using System.Runtime.InteropServices.Marshalling;
     using System.Security.Cryptography.X509Certificates;
 
-    class Gamecontroller {
+
+
+    // The Game controller 
+
+   // The Model class and the Player abstract class should 
+
+     class Gamecontroller {
 
 
 
- 
-    }
+
+
+
+
+
+
+
+
+}
 
 
 
     // Holds information about the game 
 
-
-   class Model {
-
-
+                                                                                                                                                                                            
+   class Model: Gamecontroller {
 
 
-        //   public string gameBoard() {
+        public Model()    {
+
+        }
+
+          public static void startGame() {
+
+
 
 
         // seven-column, six-row vertically suspended grid
         // Counting by index: 6-column, 5-row vertically suspended grid
 
+        // Create the gameboard
 
 
-        //  }
+        //Empty disc symbol  #
 
 
+        string gameBoard = "\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]";
 
 
-        //    public bool startGame() {
+        // How to remove a sting 
+        //gameBoard.Remove(3, 1);
+
+        // Console.WriteLine(gameBoard.Remove(3,1));
 
 
+        //How to insert a string 
+
+        // Console.WriteLine(gameBoard.Insert(3,"X"));
+
+        // 107 is the length of the string
+
+        // Find the index of the gameBoard
 
 
+     //  for (int i = 0; i < gameBoard.Length; i++)
+        // {
 
-        //  }
+        //    Console.WriteLine("\n" + i + " " + " " + gameBoard[i]);
+
+    //    }
+
+        Console.WriteLine(gameBoard);
 
 
 
     }
 
 
-    abstract class Player { 
 
-  
+    }
 
 
-}
+    abstract class Player: Gamecontroller {
 
-// 1 or 2 players 
-class Players : Player {
+
+
+        public Player() {
+
+
+     }
+
+
+
+
+    }
+
+
+
+    // 1 or 2 players 
+    class Players : Player {
 
 
 
@@ -123,10 +173,20 @@ class Players : Player {
             Console.WriteLine(" Welcome to the Connect 4 Game: ");
               Console.WriteLine("\n Type Help to look at how to play Connect 4 \n\n Type Start to start the game \n");
 
+
+
+            // Using a list to create the buttons for the game board
+            // 7 buttons
+
+
             var input = Console.ReadLine();
 
 
-         // Help on how to play connect 4 
+
+
+        
+
+            // Help on how to play connect 4 
 
 
             if (input == "Help") {
@@ -139,39 +199,36 @@ class Players : Player {
             // Start the game
          
             else if (input == "Start") {
-               
-                // Create the gameboard
 
 
-                //Empty disc symbol  #
+                Model.startGame();
 
 
-                string gameBoard = "\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]";
+
+                // Using a list to create the buttons for the game board
+                // 7 buttons
+
+                List<string> ButtonsList = new List<string>();
+
+                ButtonsList.Add(" " + " " + "1");
+                ButtonsList.Add("2");
+                ButtonsList.Add("3");
+                ButtonsList.Add("4");
+                ButtonsList.Add("5");
+                ButtonsList.Add("6");
+                ButtonsList.Add("7");
 
 
-                // How to remove a sting 
-                gameBoard.Remove(3, 1);
 
-                Console.WriteLine(gameBoard.Remove(3,1));
+                foreach (string buttons in ButtonsList)
+                {
+                    Console.Write(buttons + " ");
+                }
 
-
-                //How to insert a string 
-
-                Console.WriteLine(gameBoard.Insert(3,"X"));
-
-                // 107 is the length of the string
-           
-                // Find the index of the gameBoard
+                
 
 
-              for ( int i= 0; i < gameBoard.Length; i++)  {
-
-                   Console.WriteLine("\n" + i + " " + " "  + gameBoard[i]);
-
-               }
-
-
-         }
+            }
 
 
             // Exit the game 
