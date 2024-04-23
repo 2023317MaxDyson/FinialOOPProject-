@@ -15,6 +15,8 @@ namespace OOPProjectMaxDyson
 
     class Gamecontroller {
 
+
+
  
     }
 
@@ -23,15 +25,7 @@ namespace OOPProjectMaxDyson
     // Holds information about the game 
 
 
-   class Model
-    {
-
-
-
-
-
-        //  discs 
-
+   class Model {
 
 
 
@@ -65,10 +59,6 @@ namespace OOPProjectMaxDyson
     abstract class Player { 
 
   
-
-
-
-
 
 
 }
@@ -129,56 +119,59 @@ class Players : Player {
 
     internal class Program
     {
-        static void Main(string[] args)
-       
-        {
+        static void Main(string[] args) {
             Console.WriteLine(" Welcome to the Connect 4 Game: ");
-            Console.WriteLine("\n Type Help to look at how to play Connect 4 \n\n Type Start to start the game \n");
+              Console.WriteLine("\n Type Help to look at how to play Connect 4 \n\n Type Start to start the game \n");
 
             var input = Console.ReadLine();
 
 
-
-         string[,] gameBoard = new string[7, 6];
-
+         // Help on how to play connect 4 
 
 
-
-
-            // Help on how to play connect 4 
-
-
-            if (input == "Help")   {
-
+            if (input == "Help") {
 
                 Interaction.NeedHelp();
 
 
-
             }
 
-            // Start the game 
-
-            else if (input == "Start") {
-
-
-                for (int i = 0; i <= 7; i++)  {
-
+            // Start the game
          
-                    for (int j = 0; j <= 6; j++) {
+            else if (input == "Start") {
+               
+                // Create the gameboard
 
-                        gameBoard[i, j] = "#";
+
+                //Empty disc symbol  #
 
 
-                        Console.WriteLine("\n" + gameBoard[i, j]);
+                string gameBoard = "\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]";
 
-                    }
 
-                    Console.WriteLine();
+                // How to remove a sting 
+                gameBoard.Remove(3, 1);
 
-                }
-              
-            }
+                Console.WriteLine(gameBoard.Remove(3,1));
+
+
+                //How to insert a string 
+
+                Console.WriteLine(gameBoard.Insert(3,"X"));
+
+                // 107 is the length of the string
+           
+                // Find the index of the gameBoard
+
+
+              for ( int i= 0; i < gameBoard.Length; i++)  {
+
+                   Console.WriteLine("\n" + i + " " + " "  + gameBoard[i]);
+
+               }
+
+
+         }
 
 
             // Exit the game 
@@ -189,6 +182,7 @@ class Players : Player {
                 Exit.exitGame();
             }
 
+           
         
         }
     }
