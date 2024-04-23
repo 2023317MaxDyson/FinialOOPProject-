@@ -14,19 +14,43 @@ namespace OOPProjectMaxDyson
     using System.ComponentModel.Design;
     using System.Runtime.InteropServices.Marshalling;
     using System.Security.Cryptography.X509Certificates;
+    using System.Transactions;
 
 
 
     // The Game controller 
 
-   // The Model class and the Player abstract class should 
+    // The Model class and the Player abstract class should  should communicate with the world via an object that is created in your controller class.
 
-     class Gamecontroller {
+    class Gamecontroller {
+
+        Gamecontroller player1;
+
+
+      
+
+
+        public static void Connect4Game() {
+
+
+          Console.WriteLine("\n  Enter (1-7):  ");
+
+
+          Console.ReadLine();
 
 
 
 
+        }
 
+
+        public static void Controller(string buttons) {
+
+           Console.Write(buttons + " ");
+        
+        
+
+        }
 
 
 
@@ -37,7 +61,7 @@ namespace OOPProjectMaxDyson
 
 
 
-    // Holds information about the game 
+    // Holds information of the  game 
 
                                                                                                                                                                                             
    class Model: Gamecontroller {
@@ -45,48 +69,49 @@ namespace OOPProjectMaxDyson
 
         public Model()    {
 
+
+
         }
 
-          public static void startGame() {
+          public static void Board() {
 
 
 
 
-        // seven-column, six-row vertically suspended grid
-        // Counting by index: 6-column, 5-row vertically suspended grid
+            // seven-column, six-row vertically suspended grid
+            // Counting by index: 6-column, 5-row vertically suspended grid
 
-        // Create the gameboard
+            // Create the gameboa
 
-
-        //Empty disc symbol  #
-
-
-        string gameBoard = "\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]\n[ # # # # # # # ]";
+            //Empty disc symbol  #
 
 
-        // How to remove a sting 
-        //gameBoard.Remove(3, 1);
-
-        // Console.WriteLine(gameBoard.Remove(3,1));
+            // Updating the gameboard that is created by a multidimensial array;
 
 
-        //How to insert a string 
-
-        // Console.WriteLine(gameBoard.Insert(3,"X"));
-
-        // 107 is the length of the string
-
-        // Find the index of the gameBoard
 
 
-     //  for (int i = 0; i < gameBoard.Length; i++)
-        // {
 
-        //    Console.WriteLine("\n" + i + " " + " " + gameBoard[i]);
+            String[,] gameBoardarray = { 
+ 
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]", "\n"}  ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]", "\n"}  ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]" , "\n"} ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]" , "\n"} ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]" , "\n"} ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]" , "\n"} ,
+                {  "[", "#", "#", "#", "#", "#", "#",  "#", "]" , "\n"} 
+            };
 
-    //    }
 
-        Console.WriteLine(gameBoard);
+
+            foreach(string gameBoard in gameBoardarray  ) {
+
+                
+                Console.Write( " " + gameBoard);
+
+            }
+
 
 
 
@@ -98,10 +123,16 @@ namespace OOPProjectMaxDyson
 
 
     abstract class Player: Gamecontroller {
+        
+        public string Player1;
+
+        public string Player2;
+
 
 
 
         public Player() {
+
 
 
      }
@@ -115,7 +146,6 @@ namespace OOPProjectMaxDyson
 
     // 1 or 2 players 
     class Players : Player {
-
 
 
 
@@ -170,6 +200,8 @@ namespace OOPProjectMaxDyson
     internal class Program
     {
         static void Main(string[] args) {
+
+
             Console.WriteLine(" Welcome to the Connect 4 Game: ");
               Console.WriteLine("\n Type Help to look at how to play Connect 4 \n\n Type Start to start the game \n");
 
@@ -184,12 +216,11 @@ namespace OOPProjectMaxDyson
 
 
 
-        
-
             // Help on how to play connect 4 
 
 
             if (input == "Help") {
+
 
                 Interaction.NeedHelp();
 
@@ -201,8 +232,8 @@ namespace OOPProjectMaxDyson
             else if (input == "Start") {
 
 
-                Model.startGame();
 
+                Model.Board();
 
 
                 // Using a list to create the buttons for the game board
@@ -210,7 +241,7 @@ namespace OOPProjectMaxDyson
 
                 List<string> ButtonsList = new List<string>();
 
-                ButtonsList.Add(" " + " " + "1");
+                ButtonsList.Add(" " + " " + " " + "1");
                 ButtonsList.Add("2");
                 ButtonsList.Add("3");
                 ButtonsList.Add("4");
@@ -218,15 +249,15 @@ namespace OOPProjectMaxDyson
                 ButtonsList.Add("6");
                 ButtonsList.Add("7");
 
-
-
                 foreach (string buttons in ButtonsList)
                 {
-                    Console.Write(buttons + " ");
+               
+                    Gamecontroller.Controller(buttons);
+
                 }
 
-                
 
+                Gamecontroller.Connect4Game();
 
             }
 
